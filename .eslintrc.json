@@ -2,5 +2,11 @@
   "extends": "standard-with-typescript", // colocando a lib que instalamos que é baseada no standard
   "parserOptions": { //dizer para o eslint que iremos utilizar configurações do tslint
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistence-type-definitions": "off",
+    "@typescript-eslint/comma-spacing": "off"
+
   }
 }
