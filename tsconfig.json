@@ -5,5 +5,13 @@
     "target": "es2019", // para qual ecma script ele vai transpilar
     "esModuleInterop": true, // Modulos que usam commonjs ele vai fazer funcionar import onde é require
     "allowJs": true // se tiver arquivos de configuração js pra ele incluir
-  }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts"
+
+  ]
 }
