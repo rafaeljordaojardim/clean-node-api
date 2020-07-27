@@ -4,7 +4,8 @@
     "module": "commonjs", // manda gerar com formato commonjs que é o que o browser entende
     "target": "es2019", // para qual ecma script ele vai transpilar
     "esModuleInterop": true, // Modulos que usam commonjs ele vai fazer funcionar import onde é require
-    "allowJs": true // se tiver arquivos de configuração js pra ele incluir
+    "allowJs": true, // se tiver arquivos de configuração js pra ele incluir
+    "sourceMap": true
   },
   "include": [
     "src"
