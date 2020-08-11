@@ -6,14 +6,15 @@
     "esModuleInterop": true, // Modulos que usam commonjs ele vai fazer funcionar import onde é require
     "allowJs": true, // se tiver arquivos de configuração js pra ele incluir
     "sourceMap": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts"
-
   ]
 }
