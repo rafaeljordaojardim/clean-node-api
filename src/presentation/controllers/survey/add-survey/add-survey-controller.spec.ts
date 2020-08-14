@@ -1,7 +1,9 @@
-import { HttpRequest, AddSurvey, AddSurveyParams, Validation } from './add-survey-controller-protocols'
+import { HttpRequest, AddSurvey, Validation } from './add-survey-controller-protocols'
 import { AddSurveyController } from './add-survey-controller'
 import { badRequest, serverError, noContent } from '../../../helpers/http/http-helper'
 import MockDate from 'mockdate'
+import { mockValidation } from '@/validation/test'
+import { mockAddSurvey } from '@/presentation/test'
 const makeFakeRequest = (): HttpRequest => ({
   body: {
     question: 'any_question',
@@ -12,33 +14,15 @@ const makeFakeRequest = (): HttpRequest => ({
     date: new Date()
   }
 })
-const makeValidation = (): Validation => {
-  class ValidationStub implements Validation {
-    validate (input: any): Error {
-      return null
-    }
-  }
 
-  return new ValidationStub()
-}
-
-const makeAddSurvey = (): AddSurvey => {
-  class AddSurveyStub implements AddSurvey {
-    async add (data: AddSurveyParams): Promise<void> {
-      return Promise.resolve()
-    }
-  }
-
-  return new AddSurveyStub()
-}
 type SutTypes = {
   sut: AddSurveyController
   validationStub: Validation
   addSurveyStub: AddSurvey
 }
 const makeSut = (): SutTypes => {
-  const validationStub = makeValidation()
-  const addSurveyStub = makeAddSurvey()
+  const validationStub = mockValidation()
+  const addSurveyStub = mockAddSurvey()
   const sut = new AddSurveyController(validationStub, addSurveyStub)
   return {
     sut,
