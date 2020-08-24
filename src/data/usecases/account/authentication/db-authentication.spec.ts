@@ -100,10 +100,11 @@ describe('DbAuthentication UseCase', () => {
     await expect(promise).rejects.toThrow()
   })
 
-  test('Should call Encrypter with correct id', async () => {
+  test('should return a token on success', async () => {
     const { sut } = makeSut()
-    const accessToken = await sut.auth(mockFakeAuthentication())
-    expect(accessToken).toBe('any_token')
+    const { accessToken, name } = await sut.auth(mockFakeAuthentication())
+    expect(accessToken).toBe(accessToken)
+    expect(name).toBe('any_name')
   })
 
   test('Should call UpdateAccessTokenRepository with correct values', async () => {
